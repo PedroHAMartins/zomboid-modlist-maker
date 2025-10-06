@@ -2,6 +2,8 @@
 
 Have you ever spent some time creating a modlist to your server or single player map? Was it annoying having to open the game and use Mod Manager every single time? This Chrome extension helps you create and manage modlists for Project Zomboid by adding mods directly from Steam Workshop pages. Easily create a txt file that helps you place ModID, WorkshopID and Maps strings into the .ini of your server or SP. This is focused on a fast and easy modding list setup.
 
+![Zomboid Modlist Helper](public/mod-image.png)
+
 ## Features
 
 - 🎯 **One-click mod addition**: Add mods to your list directly from Steam Workshop pages
@@ -11,6 +13,8 @@ Have you ever spent some time creating a modlist to your server or single player
 - 💾 **Persistent storage**: Your modlist is saved locally and persists between sessions
 
 ## How it Works
+
+![Extension Demo](public/mod-gif.gif)
 
 1. **Install the extension** in your Chrome browser
 2. **Navigate to Steam Workshop** pages for Project Zomboid mods
