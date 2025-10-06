@@ -86,10 +86,24 @@ The extension works on:
 
 ```
 src/
-├── App.tsx              # Main popup UI component
+├── App.tsx              # Main popup UI component (refactored to use components)
 ├── main.tsx             # React entry point
-├── types/
+├── components/          # Reusable UI components
+│   ├── index.ts         # Component exports
+│   ├── Header.tsx       # Extension header with title and description
+│   ├── SteamPageWarning.tsx  # Warning message for non-Steam pages
+│   ├── ActionButtons.tsx     # Export and clear action buttons
+│   ├── ModList.tsx      # Container for displaying mod collection
+│   ├── ModItem.tsx      # Individual mod display component
+│   └── EmptyState.tsx   # Empty state when no mods are present
+├── hooks/               # Custom React hooks
+│   ├── useChromeExtension.ts  # Chrome extension API integration
+│   └── useModlistOperations.ts # Modlist management operations
+├── types/               # TypeScript type definitions
+│   ├── index.ts         # Shared types and interfaces
 │   └── chrome.d.ts      # Chrome extension API types
+├── App.css              # Main application styles
+└── index.css            # Global styles
 public/
 ├── manifest.json        # Extension manifest
 ├── content.js           # Content script for Steam pages
@@ -112,13 +126,37 @@ npm run build:extension
 npm run lint
 ```
 
+### Architecture
+
+The project follows a componentized architecture with clear separation of concerns:
+
+#### Components
+
+- **Header**: Displays the extension title and description
+- **SteamPageWarning**: Shows a warning when not on Steam Workshop pages
+- **ActionButtons**: Handles export and clear operations
+- **ModList**: Container component that manages the mod collection display
+- **ModItem**: Individual mod display with mod IDs, map folders, and actions
+- **EmptyState**: Displays when no mods are present
+
+#### Custom Hooks
+
+- **useChromeExtension**: Manages Chrome extension APIs, storage, and messaging
+- **useModlistOperations**: Handles modlist operations like export, clear, and remove
+
+#### Type Safety
+
+- Shared TypeScript interfaces in `types/index.ts`
+- Chrome extension API types in `types/chrome.d.ts`
+- Proper typing throughout all components and hooks
+
 ### Technologies Used
 
-- **React 19** - UI framework
-- **TypeScript** - Type safety
-- **Tailwind CSS** - Styling
-- **Vite** - Build tool
-- **Chrome Extension APIs** - Browser integration
+- **React 19** - UI framework with hooks and functional components
+- **TypeScript** - Type safety and better developer experience
+- **Tailwind CSS** - Utility-first CSS framework for styling
+- **Vite** - Fast build tool and development server
+- **Chrome Extension APIs** - Browser integration for storage and messaging
 
 ## Contributing
 

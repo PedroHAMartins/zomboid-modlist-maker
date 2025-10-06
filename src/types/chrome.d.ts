@@ -2,15 +2,22 @@
 declare namespace chrome {
   namespace runtime {
     function sendMessage(
-      message: any,
-      callback?: (response: any) => void
+      message: unknown,
+      callback?: (response: unknown) => void
     ): void;
     const onMessage: {
       addListener(
         callback: (
-          message: any,
-          sender: any,
-          sendResponse: (response?: any) => void
+          message: unknown,
+          sender: unknown,
+          sendResponse: (response?: unknown) => void
+        ) => void
+      ): void;
+      removeListener(
+        callback: (
+          message: unknown,
+          sender: unknown,
+          sendResponse: (response?: unknown) => void
         ) => void
       ): void;
     };
@@ -20,7 +27,7 @@ declare namespace chrome {
     namespace local {
       function get(
         keys: string | string[] | object,
-        callback: (result: any) => void
+        callback: (result: unknown) => void
       ): void;
       function set(items: object, callback?: () => void): void;
     }
@@ -29,7 +36,7 @@ declare namespace chrome {
   namespace tabs {
     function query(
       queryInfo: { active?: boolean; currentWindow?: boolean },
-      callback: (tabs: any[]) => void
+      callback: (tabs: unknown[]) => void
     ): void;
   }
 
