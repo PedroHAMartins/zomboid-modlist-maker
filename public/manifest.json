@@ -1,0 +1,35 @@
+{
+    "manifest_version": 3,
+    "name": "ZMH - Zomboid Modlist Helper",
+    "description": "A tool to help you make your own modlist for Zomboid",
+    "version": "1.0",
+    "action": {
+        "default_popup": "index.html"
+    },
+    "background": {
+        "service_worker": "background.js"
+    },
+    "permissions": [
+        "activeTab",
+        "storage",
+        "tabs",
+        "downloads"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "https://steamcommunity.com/sharedfiles/filedetails/*",
+                "https://steamcommunity.com/workshop/browse/?appid=108600*"
+            ],
+            "js": ["content.js"],
+            "run_at": "document_end"
+        }
+    ],
+    "icons": {
+        "128": "128x128.png"
+    },
+    "host_permissions": [
+        "https://steamcommunity.com/sharedfiles/filedetails/*",
+        "https://steamcommunity.com/workshop/browse/?appid=108600*"
+    ]
+}
